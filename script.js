@@ -115,9 +115,7 @@ let mgSpawn    = null;
 ═══════════════════════════════════════════ */
 const $ = id => document.getElementById(id);
 const G = {
-  screenIntro : $('screen-intro'),
   screenGame  : $('screen-game'),
-  btnStart    : $('btn-start'),
 
   honeyImg    : $('honey-img'),
   thought     : $('thought'),
@@ -596,20 +594,6 @@ function decay() {
 /* ═══════════════════════════════════════════
    BIENVENIDA
 ═══════════════════════════════════════════ */
-function enterGame() {
-  G.screenIntro.style.transition='opacity .55s, transform .55s';
-  G.screenIntro.style.opacity='0';
-  G.screenIntro.style.transform='scale(1.06)';
-  setTimeout(()=>{
-    G.screenIntro.classList.add('hidden');
-    G.screenGame.classList.remove('hidden');
-    G.screenGame.style.opacity='0';
-    G.screenGame.style.transition='opacity .45s';
-    void G.screenGame.offsetWidth;
-    G.screenGame.style.opacity='1';
-    welcomeMsg();
-  },560);
-}
 function welcomeMsg() {
   const h=new Date().getHours();
   let g;
@@ -624,8 +608,6 @@ function welcomeMsg() {
    EVENTOS
 ═══════════════════════════════════════════ */
 function bindEvents() {
-  G.btnStart.addEventListener('click', enterGame);
-
   /* Acciones */
   document.querySelectorAll('.act[data-action]').forEach(btn=>{
     btn.addEventListener('click', e=>{
@@ -653,7 +635,7 @@ function bindEvents() {
   document.addEventListener('visibilitychange',()=>{ if(document.hidden) save(); });
   window.addEventListener('beforeunload', save);
 
-  /* Pensamiento aleatorio al tocar la pantalla del juego */
+  /* Pensamiento aleatorio al tocar Honey */
   G.honeyImg.addEventListener('touchstart',e=>{
     e.preventDefault();
     const t=e.changedTouches[0];
@@ -670,6 +652,7 @@ function init() {
   setAnim('idle');
   openPanel('panel-actions');
   bindEvents();
+  welcomeMsg();
 
   setInterval(decay,     DECAY_MS);
   setInterval(speakIdle, 32000);

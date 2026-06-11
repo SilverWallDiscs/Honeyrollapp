@@ -1,33 +1,41 @@
 {
   "name": "Honeyroll",
   "short_name": "Honeyroll",
-  "description": "Tu compañerita virtual ♡",
-  "start_url": ".",
-  "scope": ".",
+  "description": "Tu compañerita virtual ♡ — tamagotchi de Honey",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "honeyroll-app",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FF96D2",
   "theme_color": "#FF87F5",
   "lang": "es",
+  "dir": "ltr",
+  "categories": ["games", "entertainment"],
   "icons": [
     {
-      "src": "Assets/icon.ico",
-      "sizes": "any",
-      "type": "image/x-icon",
+      "src": "Assets/Honeyfeliz.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any"
     },
     {
       "src": "Assets/Honeyfeliz.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     },
     {
       "src": "Assets/Honeyfeliz.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "Assets/icon.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
     }
-  ],
-  "categories": ["games", "entertainment"]
+  ]
 }

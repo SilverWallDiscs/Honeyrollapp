@@ -6,15 +6,15 @@
 const CACHE = 'honeyroll-v1';
 
 const PRECACHE = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/Assets/Habitacion.png',
-  '/Assets/Honeydefault.png',
-  '/Assets/Honeydurmiendo.png',
-  '/Assets/Honeyfeliz.png',
-  '/Assets/icon.ico',
+  './',
+  './index.html',
+  './styles.css',
+  './script.js',
+  './Assets/Habitacion.png',
+  './Assets/Honeydefault.png',
+  './Assets/Honeydurmiendo.png',
+  './Assets/Honeyfeliz.png',
+  './Assets/icon.ico',
 ];
 
 /* ── Instalación: pre-cachear todos los assets ── */

@@ -2,7 +2,8 @@
   "name": "Honeyroll",
   "short_name": "Honeyroll",
   "description": "Tu compañerita virtual ♡",
-  "start_url": "/",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FF96D2",
@@ -13,7 +14,7 @@
       "src": "Assets/icon.ico",
       "sizes": "any",
       "type": "image/x-icon",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "Assets/Honeyfeliz.png",
@@ -28,6 +29,5 @@
       "purpose": "any"
     }
   ],
-  "screenshots": [],
   "categories": ["games", "entertainment"]
 }

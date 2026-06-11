@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <title>Honeyroll 🐾</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ══ PARTÍCULAS GLOBALES ══ -->
+<div id="particles"      aria-hidden="true"></div>
+<div id="hearts-layer"   aria-hidden="true"></div>
+<div id="click-fx"       aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════
+     PANTALLA INTRO
+══════════════════════════════════════════════ -->
+<div class="screen" id="screen-intro">
+  <div class="intro-bg"></div>
+  <div class="intro-card">
+    <img src="Assets/Honeyfeliz.png" class="intro-img" alt="Honey feliz"/>
+    <h1 class="intro-title">Honeyroll</h1>
+    <p  class="intro-sub">♡ tu compañerita virtual ♡</p>
+    <button class="big-btn" id="btn-start">
+      ¡Empezar! ✨
+      <span class="btn-shine"></span>
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     JUEGO PRINCIPAL
+══════════════════════════════════════════════ -->
+<div class="screen hidden" id="screen-game">
+
+  <!-- ─ FONDO: habitación ─ -->
+  <div class="room-bg" id="room-bg">
+    <img src="Assets/Habitacion.png" class="room-img" alt=""/>
+  </div>
+
+  <!-- ─ SUPER HAPPY BADGE ─ -->
+  <div class="super-badge hidden" id="super-badge">✨ ¡Súper Feliz! ✨</div>
+
+  <!-- ─ BARRA SUPERIOR ─ -->
+  <header class="top-bar">
+    <div class="top-title">Honeyroll</div>
+    <div class="top-stats">
+      <div class="mini-stat" id="ms-happiness">😊<span id="ms-h">80</span></div>
+      <div class="mini-stat" id="ms-energy"   >⚡<span id="ms-e">80</span></div>
+      <div class="mini-stat" id="ms-hunger"   >🍪<span id="ms-n">80</span></div>
+      <div class="mini-stat" id="ms-affection">💕<span id="ms-a">80</span></div>
+    </div>
+  </header>
+
+  <!-- ─ MASCOTA ─ -->
+  <div class="pet-stage" id="pet-stage">
+    <!-- Burbuja de pensamiento -->
+    <div class="thought" id="thought">
+      <span id="thought-text">💭</span>
+    </div>
+
+    <!-- Imagen de Honey -->
+    <img id="honey-img" class="honey-img"
+         src="Assets/Honeydefault.png" alt="Honey"/>
+
+    <!-- Objeto que cae (galletita etc) -->
+    <div class="drop-item" id="drop-item">🍪</div>
+
+    <!-- ─ DIÁLOGO — flota arriba dentro de la escena ─ -->
+    <div class="dialog-box" id="dialog-box">
+      <p id="dialog-text">…</p>
+    </div>
+
+  </div>
+
+  <!-- ─ BARRA INFERIOR DE NAVEGACIÓN ─ -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-panel="panel-actions" id="nav-actions">
+      <span class="nav-icon">🎮</span>
+      <span class="nav-label">Jugar</span>
+    </button>
+    <button class="nav-btn" data-panel="panel-stats" id="nav-stats">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Estado</span>
+    </button>
+    <button class="nav-btn" data-panel="panel-minigame" id="nav-minigame">
+      <span class="nav-icon">⭐</span>
+      <span class="nav-label">Mini juego</span>
+    </button>
+    <button class="nav-btn" data-panel="panel-letters" id="nav-letters">
+      <span class="nav-icon">💌</span>
+      <span class="nav-label">Cartitas</span>
+    </button>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       PANELES (slide desde abajo)
+  ════════════════════════════════════════ -->
+
+  <!-- PANEL 1: ACCIONES -->
+  <div class="panel active" id="panel-actions">
+    <div class="panel-grid">
+      <button class="act" id="btn-feed"  data-action="feed">
+        <span class="act-e">🍪</span><span class="act-n">Galletita</span>
+      </button>
+      <button class="act" id="btn-hug"   data-action="hug">
+        <span class="act-e">🤗</span><span class="act-n">Abrazo</span>
+      </button>
+      <button class="act" id="btn-play"  data-action="play">
+        <span class="act-e">⭐</span><span class="act-n">Jugar</span>
+      </button>
+      <button class="act" id="btn-sleep" data-action="sleep">
+        <span class="act-e">🌙</span><span class="act-n">Dormir</span>
+      </button>
+      <button class="act" id="btn-sing"  data-action="sing">
+        <span class="act-e">🎵</span><span class="act-n">Cantar</span>
+      </button>
+      <button class="act" id="btn-bath"  data-action="bath">
+        <span class="act-e">🛁</span><span class="act-n">Bañar</span>
+      </button>
+      <button class="act" id="btn-dance" data-action="dance">
+        <span class="act-e">💃</span><span class="act-n">Bailar</span>
+      </button>
+      <button class="act" id="btn-kiss"  data-action="kiss">
+        <span class="act-e">💋</span><span class="act-n">Besito</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- PANEL 2: ESTADÍSTICAS -->
+  <div class="panel" id="panel-stats">
+    <div class="stats-title-row">♡ estado de Honey ♡</div>
+    <div class="stats-list">
+
+      <div class="stat-row">
+        <span class="stat-ico">😊</span>
+        <div class="stat-mid">
+          <span class="stat-lbl">Felicidad</span>
+          <div class="bar-bg"><div class="bar-fill b-happy" id="bar-happiness"></div></div>
+        </div>
+        <span class="stat-val" id="val-happiness">80</span>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-ico">⚡</span>
+        <div class="stat-mid">
+          <span class="stat-lbl">Energía</span>
+          <div class="bar-bg"><div class="bar-fill b-energy" id="bar-energy"></div></div>
+        </div>
+        <span class="stat-val" id="val-energy">80</span>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-ico">🍪</span>
+        <div class="stat-mid">
+          <span class="stat-lbl">Hambre</span>
+          <div class="bar-bg"><div class="bar-fill b-hunger" id="bar-hunger"></div></div>
+        </div>
+        <span class="stat-val" id="val-hunger">80</span>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-ico">💕</span>
+        <div class="stat-mid">
+          <span class="stat-lbl">Cariño</span>
+          <div class="bar-bg"><div class="bar-fill b-affection" id="bar-affection"></div></div>
+        </div>
+        <span class="stat-val" id="val-affection">80</span>
+      </div>
+
+    </div>
+    <div class="stats-hint">¡Mantén todas las barras altas para el modo Súper Feliz! ✨</div>
+  </div>
+
+  <!-- PANEL 3: MINI JUEGO -->
+  <div class="panel" id="panel-minigame">
+    <div class="mg-header">
+      <span class="mg-title">🌟 Atrapa las estrellas</span>
+      <div class="mg-hud">
+        ⭐ <span id="mg-score">0</span>
+        <span class="mg-sep">|</span>
+        <span id="mg-timer">15s</span>
+      </div>
+    </div>
+    <div class="mg-arena" id="mg-arena">
+      <div class="mg-idle-msg" id="mg-idle-msg">¡Toca para lanzar una estrella!</div>
+    </div>
+    <button class="big-btn mg-btn" id="btn-mg-start">
+      🎮 ¡Jugar!
+      <span class="btn-shine"></span>
+    </button>
+  </div>
+
+  <!-- PANEL 4: CARTITAS -->
+  <div class="panel" id="panel-letters">
+    <div class="letters-top">
+      <span>🌸</span>
+      <span class="letters-title">Cartitas de Silver</span>
+      <span>🌸</span>
+    </div>
+    <button class="big-btn letter-btn" id="btn-letter">
+      💌 Leer una cartita
+      <span class="btn-shine"></span>
+    </button>
+    <div class="envelope" id="envelope">
+      <div class="env-flap"></div>
+      <div class="env-body">
+        <div class="letter-paper">
+          <div class="letter-deco">💌</div>
+          <p  class="letter-text" id="letter-text"></p>
+          <p  class="letter-sig"  id="letter-sig"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /screen-game -->
+
+<!-- ─ TOAST ─ -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

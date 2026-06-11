@@ -1,0 +1,11 @@
+{
+  "name": "honeys-cinnamoroll",
+  "version": "1.0.0",
+  "description": "Honey's Cinnamoroll - Un tamagotchi virtual adorable",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Silver",
+  "license": "MIT"
+}

@@ -347,8 +347,10 @@ html, body {
   backdrop-filter: blur(16px);
   border-top: 1.5px solid rgba(210,180,240,.5);
   box-shadow: 0 -2px 14px rgba(140,80,180,.12);
-  /* safe area para iPhone con home bar */
+  /* padding extra para que los botones no queden bajo la gesture bar */
   padding-bottom: env(safe-area-inset-bottom, 0px);
+  /* la altura mínima de los botones sigue siendo 64px sin contar el safe area */
+  min-height: var(--nav-h);
 }
 .nav-btn {
   display: flex; flex-direction: column;
@@ -606,16 +608,21 @@ html, body {
 .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
 /* ══════════════════════════════════════════════════════
-   SAFE AREA (iPhone notch / home bar)
+   SAFE AREA (iPhone notch / Android gesture bar)
+   viewport-fit=cover en el meta activa estas variables
 ══════════════════════════════════════════════════════ */
 :root {
+  --safe-top:    env(safe-area-inset-top,    0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --nav-h: calc(64px + env(safe-area-inset-bottom, 0px));
 }
-/* Forzar que la pantalla ocupe exactamente el viewport visible */
+
+/* La pantalla ocupa todo el viewport incluyendo notch y gesture bar */
 #screen-game {
   height: 100dvh;
   height: 100vh; /* fallback */
+  /* Empuja el contenido para que no quede bajo la gesture bar */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* ══════════════════════════════════════════════════════

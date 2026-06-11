@@ -3,7 +3,7 @@
  * Cache-first para assets estáticos → funciona offline
  */
 
-const CACHE = 'honeyroll-v1';
+const CACHE = 'honeyroll-v2';
 
 const PRECACHE = [
   './',
